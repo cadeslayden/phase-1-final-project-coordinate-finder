@@ -1,0 +1,31 @@
+body {
+    background-image: linear-gradient(to right, gainsboro, rgb(59, 59, 170))
+}
+h1 {
+    font-size: 65px;
+    text-align: center;
+    color: gainsboro;
+    background-color: black;
+    font-family: fantasy;
+}
+H2 {
+    font-size: 20px;
+    color: gainsboro;
+    background-color: black;
+    position: absolute;
+    top:100px;
+    left: 455px;
+}
+head {
+    color: black
+}
+fieldset {
+    width: 40px;
+    text-align: center;
+    padding: 25px;
+    size: 50px;
+}
+form {
+    font-size: 25px;
+
+}
