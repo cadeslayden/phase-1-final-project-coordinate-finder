@@ -1,19 +1,25 @@
-const myForm = document.getElementById('myForm')
-console.log(myForm)
+let findInfoButton = document.getElementById("findInfo")
+console.log(findInfoButton)
 
-myForm.addEventListener('submit', function(e) {
+let country = document.getElementById("country")
+let zipcode = document.getElementById("songName")
+
+
+findInfoButton.addEventListener('click', logData)
+
+function logData(e){
     e.preventDefault();
 
-    const formData = new FormData(this);
+    console.log(country.value)
+    console.log(zipcode.value)
+}
+ 
+const apiUrl = 'api.zippopotam.us'
 
-    fetch ('api.zippopotam.us', {
-        method: 'POST',
-        body: formData
-    }).then(function(response) {
-        return response.text();
-    }).then(function(text){
-        console.log(text)
-    }).catch(function(error){
-        console.error(error);
-    })
-})
+// function fetchZipcodeData(){
+//     fetch(apiUrl)
+//     .then ((response => response.json()))
+//     .then((data) => console.log(data))
+// }
+
+// fetchZipcodeData()
