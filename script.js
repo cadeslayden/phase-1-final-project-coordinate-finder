@@ -1,25 +1,80 @@
 let findInfoButton = document.getElementById("findInfo")
-console.log(findInfoButton)
 
 let country = document.getElementById("country")
-let zipcode = document.getElementById("songName")
-
+let zipcode = document.getElementById("zipcode")
 
 findInfoButton.addEventListener('click', logData)
 
+const apiUrl = 'https://api.zippopotam.us'
+
 function logData(e){
-    e.preventDefault();
-
-    console.log(country.value)
-    console.log(zipcode.value)
+    e.preventDefault(); 
+    
+    fetch(`${apiUrl}/${country.value}/${zipcode.value}`, {
+        method: 'GET'
+    })
+    .then ((resp => resp.json()))
+    .then(data => renderData(data))
+    .catch((error) => {
+        console.error('Unvalid Zipcode', error)
+    })
 }
- 
-const apiUrl = 'api.zippopotam.us'
 
-// function fetchZipcodeData(){
-//     fetch(apiUrl)
-//     .then ((response => response.json()))
-//     .then((data) => console.log(data))
-// }
+function renderData(data){
+    const dataToArray = Object.values(data);
+    const useableData = Object.values(dataToArray[3]);
+    const displayValues = Object.values(useableData[0])
 
-// fetchZipcodeData()
+    let townName = displayValues[0];
+    let longitude = displayValues[1];
+    let state = displayValues[2];
+    let stateAb = displayValues[3];
+    let latitude = displayValues[4];
+
+    let infoTown = document.createElement('p')
+    let infoLong = document.createElement('p')
+    let infoState = document.createElement('p')
+    let infoStateAb = document.createElement('p')
+    let infoLat = document.createElement('p')
+
+    infoTown.classList.add('town')
+    infoLong.classList.add('longitude')
+    infoState.classList.add('state')
+    infoStateAb.classList.add('abbreviation')
+    infoLat.classList.add('latitude')
+
+    infoTown.innerText = `City: ${townName}`
+    infoState.innerText = `State: ${state}`
+    infoLat.innerText = `Latitude: ${latitude}`
+    infoLong.innerText = `Longitude: ${longitude}`
+    infoStateAb.innerText = `State Abbreviation: ${stateAb}`
+
+    document.body.appendChild(infoTown)
+    document.body.appendChild(infoState)
+    document.body.appendChild(infoLat)
+    document.body.appendChild(infoLong)
+    document.body.appendChild(infoStateAb)
+
+}
+let likeButton = document.getElementById("liker")
+let dislikeButton = document.getElementById("disliker")
+let dislikerList = document.getElementById("disliker-list")
+let likerList = document.getElementById("liker-list")
+
+likeButton.addEventListener('click', addLike)
+dislikeButton.addEventListener('click', addDislike)
+
+function addLike(){
+
+    let likeLi = document.createElement("li")
+    likeLi.innerText = `${zipcode.value}`
+    likerList.appendChild(likeLi)
+}
+function addDislike(){
+
+    let dislikeLi = document.createElement("li")
+    dislikeLi.innerText = `${zipcode.value}`
+    dislikerList.appendChild(dislikeLi)
+}
+
+
