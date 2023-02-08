@@ -13,45 +13,21 @@ function logData(e){
         method: 'GET'
     })
     .then ((resp => resp.json()))
-    .then(data => console.log(data))
+    .then(data => renderData(data))
 }
 
-// function renderData(data){
-//     const dataToArray = Object.values(data);
-//     const useableData = Object.values(dataToArray[3]);
-//     const displayValues = Object.values(useableData[0])
+let whichCounty = document.getElementById("pick-your-county")
 
-//     let townName = displayValues[0];
-//     let longitude = displayValues[1];
-//     let state = displayValues[2];
-//     let stateAb = displayValues[3];
-//     let latitude = displayValues[4];
+function renderData(data){
+    whichCounty.innerText = "Which of these county's is yours?";
 
-//     let infoTown = document.createElement('p')
-//     let infoLong = document.createElement('p')
-//     let infoState = document.createElement('p')
-//     let infoStateAb = document.createElement('p')
-//     let infoLat = document.createElement('p')
+    data.forEach(iterateData)
+}
 
-//     infoTown.classList.add('town')
-//     infoLong.classList.add('longitude')
-//     infoState.classList.add('state')
-//     infoStateAb.classList.add('abbreviation')
-//     infoLat.classList.add('latitude')
-
-//     infoTown.innerText = `City: ${townName}`
-//     infoState.innerText = `State: ${state}`
-//     infoLat.innerText = `Latitude: ${latitude}`
-//     infoLong.innerText = `Longitude: ${longitude}`
-//     infoStateAb.innerText = `State Abbreviation: ${stateAb}`
-
-//     document.body.appendChild(infoTown)
-//     document.body.appendChild(infoState)
-//     document.body.appendChild(infoLat)
-//     document.body.appendChild(infoLong)
-//     document.body.appendChild(infoStateAb)
-
-// }
+function iterateData(data){
+    dataArray = Object.values(data);
+    console.log(dataArray)
+}
 
 let likeButton = document.getElementById("liker")
 let dislikeButton = document.getElementById("disliker")
