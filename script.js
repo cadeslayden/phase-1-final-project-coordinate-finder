@@ -13,6 +13,10 @@ function logData(e) {
     document.getElementById("county-list").remove();
   }
 
+  if (document.getElementById("error")) {
+    document.getElementById("error").remove();
+  }
+
   fetch(`${apiUrl}${county.value}`, {
     method: "GET",
   })
@@ -27,17 +31,25 @@ function logData(e) {
 }
 
 function error() {
+  let whichCounty = document.getElementById("pick-your-county");
+  whichCounty.innerText = "SEARCHING...";
+
   setTimeout(function () {
-    let errorId = document.getElementById("error");
-    let node = document.createTextNode("No counties found!");
-    errorId.appendChild(node);
+    let createErrorId = document.createElement("p");
+    createErrorId.setAttribute("id", "error");
+    let node = document.createTextNode("NO COUNTIES FOUND!");
+    createErrorId.appendChild(node);
+    document.body.appendChild(createErrorId);
+  }, 3000);
+
+  setTimeout(function () {
+    whichCounty.innerText = "";
   }, 3000);
 }
 
 let i = 0;
 
 function renderData(data) {
-
   let whichCounty = document.getElementById("pick-your-county");
 
   let createDiv = document.createElement("div");
@@ -71,13 +83,13 @@ function renderData(data) {
   });
 }
 
-findInfoButton.addEventListener("mouseover",colorChange)
-findInfoButton.addEventListener("mouseout", normalizeColor)
+findInfoButton.addEventListener("mouseover", colorChange);
+findInfoButton.addEventListener("mouseout", normalizeColor);
 
-function colorChange(){
-    findInfoButton.style.backgroundColor = "lightblue"
+function colorChange() {
+  findInfoButton.style.backgroundColor = "lightyellow";
 }
 
-function normalizeColor(){
-    findInfoButton.style.backgroundColor = "white"
+function normalizeColor() {
+  findInfoButton.style.backgroundColor = "white";
 }
