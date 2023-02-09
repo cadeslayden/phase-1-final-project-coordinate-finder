@@ -114,5 +114,9 @@ p.abbreviation {
     left: 550px;
 }
 #county-list {
+    position:absolute;
+    bottom: 135px;
+    left: 515px;
     text-align: center;
+    width: 400px;
 }

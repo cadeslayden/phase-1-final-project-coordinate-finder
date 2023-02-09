@@ -21,15 +21,12 @@ let whichCounty = document.getElementById("pick-your-county")
 let i = 0
 
 function renderData(data){
+    
     whichCounty.innerText = "Which of these counties is yours?";
     
     data.forEach(element => {
-        iterateData(element)
-    });
-}
-
-function iterateData(data){
-    dataArray = Object.values(data);
+    
+    dataArray = Object.values(element);
     
     let selectCounty = dataArray[7]
     let countylist = document.getElementById("county-list")
@@ -38,11 +35,33 @@ function iterateData(data){
     let node = document.createTextNode(selectCounty)
     newP.setAttribute(`id`, `county-selector-${i}`)
     newP.appendChild(node)
-    console.log(newP)
     countylist.appendChild(newP)
 
     i++
+
+    });
+
+    countyNumber = document.getElementById("county-list")
+    length = countyNumber.children.length
+
+    document.getElementById('county-selector-0').addEventListener('click')
+    
+    // function findElements(){
+        
+    //     for (let i = 0; i < length; i++){
+    //         let countySelector = document.getElementById(`county-selector-${i}`)
+    //         countySelector.addEventListener('click',makeEventListeners)
+    //     }
+        
+    //     function makeEventListeners(){
+
+    //     }
+    // }
+
+    // findElements()
+    
 }
+
 
 let likeButton = document.getElementById("liker")
 let dislikeButton = document.getElementById("disliker")
