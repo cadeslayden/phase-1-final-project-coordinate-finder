@@ -50,3 +50,12 @@ form {
 #pick-your-county {
   color: red;
 }
+#findInfo {
+    font-weight: bold;
+    background-color: white;
+    color: black;
+    border-radius:25px;
+    width: 150px;
+    height: 25px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
