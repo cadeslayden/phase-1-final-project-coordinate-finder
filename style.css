@@ -1,122 +1,52 @@
 body {
-    background-image: linear-gradient(to right, gainsboro, rgb(59, 59, 170))
+  background-image: linear-gradient(to right, gainsboro, rgb(59, 59, 170));
 }
 h1 {
-    font-size: 65px;
-    text-align: center;
-    color: gainsboro;
-    background-color: black;
-    font-family: fantasy;
+  font-size: 65px;
+  text-align: center;
+  color: gainsboro;
+  background-color: black;
+  font-family: fantasy;
 }
 H2 {
-    font-size: 20px;
-    color: gainsboro;
-    background-color: black;
-    position: absolute;
-    top:100px;
-    left: 455px;
+  font-size: 20px;
+  color: gainsboro;
+  background-color: black;
+  position: absolute;
+  top: 100px;
+  left: 455px;
 }
 head {
-    color: black
+  color: black;
 }
 fieldset {
-    width: 40px;
-    padding: 25px;
-    size: 50px;
-    margin:0 auto;
-    background-color: gainsboro;
-    width: 400px;
+  width: 40px;
+  padding: 25px;
+  size: 50px;
+  margin: 0 auto;
+  background-color: gainsboro;
+  width: 400px;
 }
 
 form {
-    font-size: 25px;
-    text-align: center;
-
-}
-#liker {
-    font-size: 20px;
-    position: absolute;
-    left: 150px;
-    top: 325px;
-    width: 110px;
-    height: 45px;
-}
-#disliker {
-    font-size: 20px;
-    position: absolute;
-    right: 150px;
-    top: 325px;
-    width: 110px;
-    height: 45px;
-}
-hr {
-    color: black;
-}
-p.town {
-    text-align: center;
-    font-weight: bold;
-}
-p.state {
-    text-align: center;
-    font-weight: bold;
-}
-p.latitude {
-    text-align: center;
-    font-weight: bold;
-}
-p.longitude {
-    text-align: center;
-    font-weight: bold;
-}
-p.abbreviation {
-    text-align: center;
-    font-weight: bold;
-}
-#dislike-fieldset {
-    height: 200px;
-    width:200px;
-    position:absolute;
-    right: 85px;
-    top: 400px;
-    background-color: black
-}
-#like-fieldset {
-    height: 200px;
-    width:200px;
-    position: absolute;
-    left: 85px;
-    top: 400px;
-    background-color: black
-}
-#liker-header {
-    font-size: 18px;
-    text-align: center;
-}
-#disliker-header {
-    font-size: 18px;
-    text-align: center;
-}
-#liker-list {
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-}
-#disliker-list {
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
+  font-size: 25px;
+  text-align: center;
 }
 #pick-your-county {
-    font-weight: bold;
-    font-size: 25px;
-    position: absolute;
-    bottom: 350px;
-    left: 550px;
+  font-weight: bold;
+  font-size: 25px;
+  position: absolute;
+  bottom: 350px;
+  left: 550px;
 }
 #county-list {
-    position:absolute;
-    bottom: 135px;
-    left: 515px;
-    text-align: center;
-    width: 400px;
+  position: absolute;
+  bottom: 135px;
+  left: 515px;
+  text-align: center;
+  width: 400px;
+  text-size-adjust: 400px;
+}
+#pick-your-county {
+  color: red;
 }
