@@ -65,8 +65,19 @@ function renderData(data) {
 
     setTimeout(function () {
       whichCounty.innerText = "";
-    }, 3500);
+    }, 3000);
 
     i++;
   });
+}
+
+findInfoButton.addEventListener("mouseover",colorChange)
+findInfoButton.addEventListener("mouseout", normalizeColor)
+
+function colorChange(){
+    findInfoButton.style.backgroundColor = "lightblue"
+}
+
+function normalizeColor(){
+    findInfoButton.style.backgroundColor = "white"
 }
