@@ -69,3 +69,21 @@ form {
     height: 25px;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
+#error {
+    position: absolute;
+    top: 375px;
+    left: 505px;
+    font-size: 40px;
+    font-weight: bold;
+    background-color: red;
+}
+#county-list{
+    color: white;
+    font-size: 20px;
+    width: 1000px;
+    position: fixed;
+    left: 225px;
+    top: 350px;
+    font-weight: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
