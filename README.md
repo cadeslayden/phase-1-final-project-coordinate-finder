@@ -6,11 +6,17 @@
 ![Alt text](https://github.com/cadeslayden/phase-1-final-project-coordinate-finder/blob/main/Screen_Recording_2023-02-09_at_11_54_34_AM_AdobeExpress.gif?raw=true) 
 #
 #
-> SETUP      <img src="https://cdn.dribbble.com/users/2085072/screenshots/4963880/routine-maintenance-2.gif" width="60" height="50"/>
-* CLONE THIS REPO
-* ADD TO YOUR LOCAL ENVIORNMENT 
-* OPEN IN VS CODE
-* RUN OPEN INDEX.HTML TO OPEN IN BROWSER
+## SETUP <img src="https://cdn.dribbble.com/users/2085072/screenshots/4963880/routine-maintenance-2.gif" width="60" height="50"/>
+- CLONE THIS REPO
+- ADD TO YOUR LOCAL ENVIORNMENT 
+- OPEN IN VS CODE
+- RUN OPEN INDEX.HTML TO OPEN IN BROWSER
+#
+## CONTACT
+### 👨‍💻 [github](https://github.com/cadeslayden)
+### 🖥️ [linkedln](https://www.linkedin.com/in/cade-slayden-a7665a200/)
+### 📧 [email](cslayden3@gmail.com)
+
 
 
 
