@@ -1,5 +1,6 @@
 body {
-  background-image: linear-gradient(to right, gainsboro, rgb(59, 59, 170));
+  background-image: url("https://hdwallpaperim.com/wp-content/uploads/2017/09/17/64345-minimalism-mountain-sunlight.jpg");
+  background-size: 1500px;
 }
 h1 {
   font-size: 65px;
@@ -7,6 +8,7 @@ h1 {
   color: gainsboro;
   background-color: black;
   font-family: fantasy;
+  border-radius: 25px;
 }
 H2 {
   font-size: 20px;
@@ -26,6 +28,7 @@ fieldset {
   margin: 0 auto;
   background-color: gainsboro;
   width: 400px;
+  border-radius: 25px;
 }
 
 form {
@@ -48,14 +51,21 @@ form {
   text-size-adjust: 400px;
 }
 #pick-your-county {
-  color: red;
+  font-weight: bold;
+  color: black;
+  position: absolute;
+  top: 350px;
+  left: 575px;
+  font-size: 50px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  letter-spacing: 6px;
 }
 #findInfo {
     font-weight: bold;
     background-color: white;
     color: black;
     border-radius:25px;
-    width: 150px;
+    width: 200px;
     height: 25px;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
