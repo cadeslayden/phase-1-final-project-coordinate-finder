@@ -18,15 +18,30 @@ function logData(e){
 
 let whichCounty = document.getElementById("pick-your-county")
 
-function renderData(data){
-    whichCounty.innerText = "Which of these county's is yours?";
+let i = 0
 
-    data.forEach(iterateData)
+function renderData(data){
+    whichCounty.innerText = "Which of these counties is yours?";
+    
+    data.forEach(element => {
+        iterateData(element)
+    });
 }
 
 function iterateData(data){
     dataArray = Object.values(data);
-    console.log(dataArray)
+    
+    let selectCounty = dataArray[7]
+    let countylist = document.getElementById("county-list")
+    
+    let newP = document.createElement('button')
+    let node = document.createTextNode(selectCounty)
+    newP.setAttribute(`id`, `county-selector-${i}`)
+    newP.appendChild(node)
+    console.log(newP)
+    countylist.appendChild(newP)
+
+    i++
 }
 
 let likeButton = document.getElementById("liker")
