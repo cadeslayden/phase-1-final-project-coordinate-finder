@@ -1,6 +1,6 @@
-let findInfoButton = document.getElementById("findInfo");
+const findInfoButton = document.getElementById("findInfo");
 
-let county = document.getElementById("county");
+const county = document.getElementById("county");
 
 findInfoButton.addEventListener("click", logData);
 
@@ -31,7 +31,7 @@ function logData(e) {
 }
 
 function error() {
-  let whichCounty = document.getElementById("pick-your-county");
+  const whichCounty = document.getElementById("pick-your-county");
   whichCounty.innerText = "SEARCHING...";
 
   setTimeout(function () {
