@@ -1,5 +1,4 @@
 const findInfoButton = document.getElementById("findInfo");
-
 const county = document.getElementById("county");
 
 findInfoButton.addEventListener("click", logData);
@@ -14,7 +13,7 @@ function logData(e) {
   }
 
   if (document.getElementById("error")) {
-    document.getElementById("error").remove();
+    document.getElementById("error").innerText = "";
   }
 
   fetch(`${apiUrl}${county.value}`, {
@@ -35,11 +34,7 @@ function error() {
   whichCounty.innerText = "SEARCHING...";
 
   setTimeout(function () {
-    let createErrorId = document.createElement("p");
-    createErrorId.setAttribute("id", "error");
-    let node = document.createTextNode("NO COUNTIES FOUND!");
-    createErrorId.appendChild(node);
-    document.body.appendChild(createErrorId);
+    document.getElementById("error").innerText= "NO COUNTIES FOUND"
   }, 3000);
 
   setTimeout(function () {
