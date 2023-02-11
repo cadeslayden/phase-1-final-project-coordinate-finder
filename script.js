@@ -1,53 +1,90 @@
-let findInfoButton = document.getElementById("findInfo")
+const findInfoButton = document.getElementById("findInfo");
+const county = document.getElementById("county");
 
-let county = document.getElementById("county")
+findInfoButton.addEventListener("click", logData);
 
-findInfoButton.addEventListener('click', logData)
+const apiUrl = "https://nominatim.openstreetmap.org/search?format=json&county=";
 
-const apiUrl = 'https://nominatim.openstreetmap.org/search?format=json&county='
+function logData(e) {
+  e.preventDefault();
 
-function logData(e){
-    e.preventDefault(); 
-    
-    fetch(`${apiUrl}${county.value}`, {
-        method: 'GET'
-    })
-    .then ((resp => resp.json()))
-    .then(data => renderData(data))
+  if (document.getElementById("county-list")) {
+    document.getElementById("county-list").remove();
+  }
+
+  if (document.getElementById("error")) {
+    document.getElementById("error").innerText = "";
+  }
+
+  fetch(`${apiUrl}${county.value}`, {
+    method: "GET",
+  })
+    .then((resp) => resp.json())
+    .then((data) => {
+      if (data.length) {
+        renderData(data);
+      } else {
+        error();
+      }
+    });
 }
 
-let whichCounty = document.getElementById("pick-your-county")
+function error() {
+  const whichCounty = document.getElementById("pick-your-county");
+  whichCounty.innerText = "SEARCHING...";
 
-function renderData(data){
-    whichCounty.innerText = "Which of these county's is yours?";
+  setTimeout(function () {
+    document.getElementById("error").innerText= "NO COUNTIES FOUND"
+  }, 3000);
 
-    data.forEach(iterateData)
+  setTimeout(function () {
+    whichCounty.innerText = "";
+  }, 3000);
 }
 
-function iterateData(data){
-    dataArray = Object.values(data);
-    console.log(dataArray)
+let i = 0;
+
+function renderData(data) {
+  let whichCounty = document.getElementById("pick-your-county");
+
+  let createDiv = document.createElement("div");
+  createDiv.setAttribute("id", "county-list");
+  document.body.appendChild(createDiv);
+
+  whichCounty.innerText = "SEARCHING...";
+
+  data.forEach((element) => {
+    let dataArray = Object.values(element);
+    let latitude = dataArray[5];
+    let longitude = dataArray[6];
+    let selectCounty = dataArray[7];
+    let info = `${selectCounty}. Latitude: ${latitude}, Longitude: ${longitude}`;
+
+    let countyList = document.getElementById("county-list");
+
+    setTimeout(function () {
+      let listInfo = document.createElement("p");
+      listInfo.setAttribute(`id`, `county-${i}`);
+      node = document.createTextNode(info);
+      listInfo.appendChild(node);
+      countyList.appendChild(listInfo);
+    }, 3000);
+
+    setTimeout(function () {
+      whichCounty.innerText = "";
+    }, 3000);
+
+    i++;
+  });
 }
 
-let likeButton = document.getElementById("liker")
-let dislikeButton = document.getElementById("disliker")
-let dislikerList = document.getElementById("disliker-list")
-let likerList = document.getElementById("liker-list")
+findInfoButton.addEventListener("mouseover", colorChange);
+findInfoButton.addEventListener("mouseout", normalizeColor);
 
-likeButton.addEventListener('click', addLike)
-dislikeButton.addEventListener('click', addDislike)
-
-function addLike(){
-
-    let likeLi = document.createElement("li")
-    likeLi.innerText = `${county.value}`
-    likerList.appendChild(likeLi)
-}
-function addDislike(){
-
-    let dislikeLi = document.createElement("li")
-    dislikeLi.innerText = `${county.value}`
-    dislikerList.appendChild(dislikeLi)
+function colorChange() {
+  findInfoButton.style.backgroundColor = "lightyellow";
 }
 
-
+function normalizeColor() {
+  findInfoButton.style.backgroundColor = "white";
+}
