@@ -1,19 +1,24 @@
 const findInfoButton = document.getElementById("findInfo");
 const county = document.getElementById("county");
+const apiUrl = "https://nominatim.openstreetmap.org/search?format=json&county=";
+const whichCounty = document.getElementById("pick-your-county");  
+const errorMessage = document.getElementById("error");
 
 findInfoButton.addEventListener("click", logData);
-
-const apiUrl = "https://nominatim.openstreetmap.org/search?format=json&county=";
+findInfoButton.addEventListener("mouseover", colorChange);
+findInfoButton.addEventListener("mouseout", normalizeColor);
 
 function logData(e) {
+  const countyList = document.getElementById("county-list")
+
   e.preventDefault();
 
-  if (document.getElementById("county-list")) {
-    document.getElementById("county-list").remove();
+  if (countyList) {
+    countyList.remove();
   }
 
-  if (document.getElementById("error")) {
-    document.getElementById("error").innerText = "";
+  if (errorMessage) {
+    errorMessage.innerText = "";
   }
 
   fetch(`${apiUrl}${county.value}`, {
@@ -30,11 +35,10 @@ function logData(e) {
 }
 
 function error() {
-  const whichCounty = document.getElementById("pick-your-county");
   whichCounty.innerText = "SEARCHING...";
 
   setTimeout(function () {
-    document.getElementById("error").innerText= "NO COUNTIES FOUND"
+    errorMessage.innerText= "NO COUNTIES FOUND"
   }, 3000);
 
   setTimeout(function () {
@@ -42,12 +46,11 @@ function error() {
   }, 3000);
 }
 
-let i = 0;
-
 function renderData(data) {
-  let whichCounty = document.getElementById("pick-your-county");
+  let i = 0
 
   let createDiv = document.createElement("div");
+
   createDiv.setAttribute("id", "county-list");
   document.body.appendChild(createDiv);
 
@@ -64,7 +67,7 @@ function renderData(data) {
 
     setTimeout(function () {
       let listInfo = document.createElement("p");
-      listInfo.setAttribute(`id`, `county-${i}`);
+      listInfo.setAttribute(`id`, `county-${i++}`);
       node = document.createTextNode(info);
       listInfo.appendChild(node);
       countyList.appendChild(listInfo);
@@ -74,12 +77,8 @@ function renderData(data) {
       whichCounty.innerText = "";
     }, 3000);
 
-    i++;
   });
 }
-
-findInfoButton.addEventListener("mouseover", colorChange);
-findInfoButton.addEventListener("mouseout", normalizeColor);
 
 function colorChange() {
   findInfoButton.style.backgroundColor = "lightyellow";
